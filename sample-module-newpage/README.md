@@ -21,18 +21,19 @@ deals places content on the _frontend_, so it only has a _frontend_ directory.
 
 ### Layout files
 
-[The route config file](etc/frontend/routes.xml) maps the frontname "newpage" to this extension, so the application 
-looks in the extension to find the layout file describing the page.
+[The route config file](etc/frontend/routes.xml) maps the frontname "newpage" to a route-id in this module, so the application looks in the module to find the layout file describing the page.
  
 There are three routing parameters used to determine which layout file must be loaded. 
  
-The general form of the url is `<magento2-url>/<extension>/<action path>/<action name>/`.
+The general form of the url is `<magento2-url>/<frontname>/<action path>/<action name>/`.
 
 Because the page is accessed at `<magento2-url>/newpage`, the routing parameters are:
-  - _extension_: "newpage"
+  - _frontname_: "newpage"
   - _action path_: "index"
   - _action name_: "index"
-  
+
+The frontname is mapped to the route-id `newpage` which is set in the route config file.
+
 The _index_ values are provided as defaults when none are explicitly provided.
 
 The application thus looks in `<extension-root>/view/frontend/layout` for a file called `newpage_index_index.xml`.
